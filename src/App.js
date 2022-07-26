@@ -1,23 +1,43 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+
+// axios and react-router-dom always needed foo
+
 
 function App() {
+
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/products")
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => console.log(err))
+  }, [])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello MERN</h1>
+      <hr />
+      <div>
+        products: {JSON.stringify(products)}
+      </div>
+      {
+        products.map(product =>{
+          return (
+            <div key={_id}>
+              name: {product.name} <br />
+              price: {product.price} <br />
+              description:{product.description}
+            </div>
+          )
+        })
+      }
+
     </div>
   );
 }
