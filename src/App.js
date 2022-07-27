@@ -36,7 +36,7 @@ function App() {
     }
     // console.log(newProduct);
 
-    axios.post("http/localhost:8000/api/products", newProduct)
+    axios.post("http://localhost:8000/api/products", newProduct)
     .then(res =>{
       console.log("Winning", res.data);
     })
@@ -79,7 +79,8 @@ function App() {
         <hr />
         <br />
 
-
+        <hr />
+        <br />
       </div>
       {
         products.map(product =>{

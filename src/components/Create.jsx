@@ -25,6 +25,7 @@ const navigate = useNavigate()
         axios.post("http://localhost:8000/api/products", newProduct)
             .then(res => {
                 console.log("Winning", res.data);
+                setProducts(res.data)
                 navigate("/products")
             })
             .catch(err => {
