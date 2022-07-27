@@ -8,7 +8,7 @@ const Main = (props) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() =>{
-    axios.get("http:/localhost:8000/api/prducts")
+    axios.get("http://localhost:8000/api/products")
     .then(res =>{
       console.log(res.data);
       setProducts(res.data)
@@ -22,13 +22,16 @@ const Main = (props) => {
     <h1>All Products</h1>
     <hr />
     {
-      products.map((car, _id) =>{
+      products.map((products, _id) =>{
         return (
           <div key={products._id}>
-            Name: {products.name} <br />
-            Price $ {products.price}
-            Description: {products.descript}
-
+            <Link to={`/products/${products._id}`}>
+              Name: {products.name}
+            </Link> <br />
+            Price $ {products.price} <br />
+            Description: {products.descript} <br />
+            <Link to={`/update/${products._id}`}>UPDATE</Link>
+            <hr />
           </div>
         )
       })

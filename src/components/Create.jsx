@@ -38,9 +38,9 @@ const navigate = useNavigate()
         <div>
             {/* input type not defined its default is always text */}
             <form onSubmit={createProduct}>
-                name: <input onChange={(e) => setName(e.target.value)} value={name} /><br />
-                price <input type="number" onChange={(e) => setPrice(e.target.value)} value={price} /><br />
-                description <input onChange={(e) => setDescript(e.target.value)} value={descript} /><br />
+                name: <input onChange={(e) => setName(e.target.value)} value={products.name} /><br />
+                price <input type="number" onChange={(e) => setPrice(e.target.value)} value={products.price} /><br />
+                description <input onChange={(e) => setDescript(e.target.value)} value={products.descript} /><br />
                 <button>Create Product</button>
             </form>
             <hr />
